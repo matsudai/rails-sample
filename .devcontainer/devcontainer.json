@@ -1,0 +1,20 @@
+{
+  "name": "Ruby",
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "args": {
+      "uid": "${localEnv:UID:1000}",
+      "gid": "${localEnv:GID:1000}",
+      "app_root": "${containerWorkspaceFolder}"
+    }
+  },
+  "containerEnv": {},
+  "customizations": {
+    "vscode": {
+      "extensions": ["Shopify.ruby-lsp", "manuelpuyol.erb-linter"]
+    }
+  },
+  "postCreateCommand": "bundle",
+  "remoteUser": "ruby",
+  "runArgs": ["--network=rails_default"]
+}

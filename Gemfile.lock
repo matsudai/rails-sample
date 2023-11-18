@@ -1,3 +1,50 @@
+GIT
+  remote: https://github.com/rspec/rspec-core.git
+  revision: 1eeadce5aa7137ead054783c31ff35cbfe9d07cc
+  branch: main
+  specs:
+    rspec-core (3.13.0.pre)
+      rspec-support (= 3.13.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-expectations.git
+  revision: 2e8e800a0d8b64e7168dd625efe8f7526b7f1262
+  branch: main
+  specs:
+    rspec-expectations (3.13.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.13.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-mocks.git
+  revision: 868bf98d2aae5f0db15441a41b86b5f9346a12dd
+  branch: main
+  specs:
+    rspec-mocks (3.13.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.13.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-rails.git
+  revision: 6c89ad416254be5b5e0664b4a8f9efddddd33fdf
+  branch: main
+  specs:
+    rspec-rails (6.1.0.pre)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (= 3.13.0.pre)
+      rspec-expectations (= 3.13.0.pre)
+      rspec-mocks (= 3.13.0.pre)
+      rspec-support (= 3.13.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-support.git
+  revision: 48c227f93d7b69ce28babb2dce0a9d08ac4d2654
+  branch: main
+  specs:
+    rspec-support (3.13.0.pre)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -75,7 +122,15 @@ GEM
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
+    ast (2.4.2)
     base64 (0.2.0)
+    better_html (2.0.2)
+      actionview (>= 6.0)
+      activesupport (>= 6.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      parser (>= 2.4)
+      smart_properties
     bigdecimal (3.1.4)
     bindex (0.8.1)
     bootsnap (1.17.0)
@@ -88,8 +143,17 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    diff-lcs (1.5.0)
+    docile (1.4.0)
     drb (2.2.0)
       ruby2_keywords
+    erb_lint (0.5.0)
+      activesupport
+      better_html (>= 2.0.1)
+      parser (>= 2.7.1.4)
+      rainbow
+      rubocop
+      smart_properties
     erubi (1.12.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -106,6 +170,9 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.6.3)
+    language_server-protocol (3.17.0.3)
+    lint_roller (1.1.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -131,6 +198,11 @@ GEM
     nio4r (2.6.0)
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
+    parallel (1.23.0)
+    parser (3.2.2.4)
+      ast (~> 2.4.1)
+      racc
+    prism (0.17.1)
     psych (5.1.1.1)
       stringio
     puma (6.4.0)
@@ -173,12 +245,58 @@ GEM
       rake (>= 12.2)
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
+    rainbow (3.1.1)
     rake (13.1.0)
     rdoc (6.6.0)
       psych (>= 4.0.0)
+    regexp_parser (2.8.2)
     reline (0.4.0)
       io-console (~> 0.5)
+    rexml (3.2.6)
+    rubocop (1.57.2)
+      json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
+      parallel (~> 1.10)
+      parser (>= 3.2.2.4)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.28.1, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.30.0)
+      parser (>= 3.2.1.0)
+    rubocop-capybara (2.19.0)
+      rubocop (~> 1.41)
+    rubocop-factory_bot (2.24.0)
+      rubocop (~> 1.33)
+    rubocop-performance (1.19.1)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
+    rubocop-rails (2.20.2)
+      activesupport (>= 4.2.0)
+      rack (>= 1.1)
+      rubocop (>= 1.33.0, < 2.0)
+    rubocop-rake (0.6.0)
+      rubocop (~> 1.0)
+    rubocop-rspec (2.25.0)
+      rubocop (~> 1.40)
+      rubocop-capybara (~> 2.17)
+      rubocop-factory_bot (~> 2.22)
+    ruby-lsp (0.12.3)
+      language_server-protocol (~> 3.17.0)
+      prism (>= 0.17.1, < 0.18)
+      sorbet-runtime (>= 0.5.5685)
+    ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
+    smart_properties (1.17.0)
+    sorbet-runtime (0.5.11139)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -187,6 +305,21 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.6.8-x86_64-linux)
+    standard (1.32.0)
+      language_server-protocol (~> 3.17.0.2)
+      lint_roller (~> 1.0)
+      rubocop (~> 1.57.2)
+      standard-custom (~> 1.0.0)
+      standard-performance (~> 1.2)
+    standard-custom (1.0.2)
+      lint_roller (~> 1.0)
+      rubocop (~> 1.50)
+    standard-performance (1.2.1)
+      lint_roller (~> 1.1)
+      rubocop-performance (~> 1.19.1)
+    standard-rails (0.2.0)
+      lint_roller (~> 1.0)
+      rubocop-rails (~> 2.20.2)
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.0.9)
@@ -200,6 +333,7 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    unicode-display_width (2.5.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -217,12 +351,27 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   debug
+  erb_lint
   importmap-rails
   jbuilder
   puma (>= 5.0)
   rails (~> 7.1.2)
+  rspec-core!
+  rspec-expectations!
+  rspec-mocks!
+  rspec-rails!
+  rspec-support!
+  rubocop (~> 1.57.2)
+  rubocop-performance (~> 1.19.1)
+  rubocop-rails (~> 2.20.2)
+  rubocop-rake (~> 0.6.0)
+  rubocop-rspec (~> 2.25.0)
+  ruby-lsp
+  simplecov
   sprockets-rails
   sqlite3 (~> 1.4)
+  standard (~> 1.32.0)
+  standard-rails (~> 0.2.0)
   stimulus-rails
   tailwindcss-rails
   turbo-rails

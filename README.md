@@ -16,3 +16,15 @@ rails new . --skip-test --css tailwind
 
 exit
 ```
+
+### 3. Utilities
+
+* modify
+    * `Gemfile`
+    * `.dockerignore`
+    * `.gitignore`
+* add
+    * `.devcontainer/`
+    * `.vscode/`
+    * `.erb-lint.yml`
+    * `.rubocop.yml`

@@ -50,6 +50,43 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+
+  # Test framework
+  #
+  # * Rspec : https://github.com/rspec/rspec-rails
+  # * SimpleCov : https://github.com/simplecov-ruby/simplecov
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
+  end
+  gem "simplecov", require: false
+
+  # LSP
+  #
+  # * RubyLSP : https://github.com/Shopify/ruby-lsp
+  # * ErbLint :
+  #     * RubyGems : https://github.com/Shopify/erb-lint
+  #     * VSCode : https://github.com/manuelpuyol/vscode-erb-linter
+  gem "ruby-lsp", require: false
+  gem "erb_lint", require: false
+  # Linter
+  #
+  # * Rubocop : https://github.com/rubocop/rubocop
+  #     * Extensions : https://docs.rubocop.org/rubocop/1.57/extensions.html#official-extensions
+  #         * rubocop-performance
+  #         * rubocop-rails
+  #         * rubocop-rake
+  #         * rubocop-rspec
+  gem "rubocop", "~> 1.57.2", require: false
+  gem "rubocop-performance", "~> 1.19.1", require: false
+  gem "rubocop-rails", "~> 2.20.2", require: false # "~> 2.22.1" is not compatible with standard-rails
+  gem "rubocop-rake", "~> 0.6.0", require: false
+  gem "rubocop-rspec", "~> 2.25.0", require: false
+  # Standard Ruby for default rules of Rubocop
+  #
+  # * standard : https://github.com/standardrb/standard
+  # * standard-rails : https://github.com/standardrb/standard-rails
+  gem "standard", "~> 1.32.0", require: false
+  gem "standard-rails", "~> 0.2.0", require: false
 end
 
 group :development do
@@ -62,4 +99,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-

@@ -1,0 +1,56 @@
+# The behavior of RuboCop can be controlled via the .rubocop.yml
+# configuration file. It makes it possible to enable/disable
+# certain cops (checks) and to alter their behavior if they accept
+# any parameters. The file can be placed either in your home
+# directory or in some project directory.
+#
+# RuboCop will start looking for the configuration file in the directory
+# where the inspected file is and continue its way up to the root directory.
+#
+# See https://docs.rubocop.org/rubocop/configuration
+require:
+  - standard
+  - standard-performance
+  - standard-rails
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
+inherit_gem:
+  standard: config/base.yml
+  standard-performance: config/base.yml
+  standard-rails: config/base.yml
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  Exclude:
+    - "db/schema.rb"
+    - "bin/**/*"
+    - "log/**/*"
+    - "public/**/*"
+    - "storage/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - "coverage/**/*"
+
+# private/protection methods require an indent.
+#
+#     OK :
+#         private
+#
+#           def xxx; end
+#
+#     NG :
+#         private
+#
+#         def xxx; end
+Layout/IndentationConsistency:
+  EnforcedStyle: indented_internal_methods
+
+# Hash requires inside spaces.
+#
+#     OK : {}, { a: 1 }
+#     NG : {  }, {a: 1}
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
